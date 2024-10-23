@@ -4,9 +4,9 @@ Welcome to my GitHub profile! I'm passionate about building random tools no one 
 
 ## 🚀 About Me
 
-- 🔭 I’m currently working on: ECAC Python Library.
-- 🌱 I’m currently learning: Python.
-- 📫 How to reach me:
+- 🔭 I’m currently working on: ECAC Python Module
+- 🌱 I’m currently learning: Python
+- 📫 How to reach me: Twitter
 
 ## 🛠️ Languages and Tools
 
