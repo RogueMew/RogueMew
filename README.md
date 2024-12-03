@@ -14,7 +14,7 @@ Here are some of the technologies I work with:
 
 - Python
 - API Request
-- C++
+- Basic C#
 
 ## 📊 GitHub Stats
 
