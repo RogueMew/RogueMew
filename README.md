@@ -4,8 +4,8 @@ Welcome to my GitHub profile! I'm passionate about building random tools no one 
 
 ## 🚀 About Me
 
-- 🔭 I’m currently working on: Fortnite Item Shop CLI
-- 🌱 I’m currently learning: Python
+- 🔭 I’m currently working on: Rock, Paper and Scissors Command Line App
+- 🌱 I’m currently learning: C#
 - 📫 How to reach me: Twitter
 
 ## 🛠️ Languages and Tools
