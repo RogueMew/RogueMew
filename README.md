@@ -4,9 +4,9 @@ Welcome to my GitHub profile! I'm passionate about building random tools no one 
 
 ## 🚀 About Me
 
-- 🔭 I’m currently working on: Rock, Paper and Scissors Command Line App
-- 🌱 I’m currently learning: C#
-- 📫 How to reach me: Twitter
+- 🔭 I’m currently working on: Themepark WIKI API module for Python
+- 🌱 I’m currently learning: Python
+- 📫 How to reach me: No Way To
 
 ## 🛠️ Languages and Tools
 
@@ -14,14 +14,8 @@ Here are some of the technologies I work with:
 
 - Python
 - API Request
-- Basic C#
 
 ## 📊 GitHub Stats
 
 [![Your GitHub Stats](https://github-readme-stats.vercel.app/api?username=RogueMew&show_icons=true&theme=radical)](https://github.com/anuraghazra/github-readme-stats)
 
-## 🔗 Let's Connect
-
-- [LinkedIn Profile](https://linkedin.com/in/eli-kluckhohn-191794257)
-- [Twitter](https://twitter.com/RogueMew)
-- [Twitch](https://twitch.tv/RogueMew)
