@@ -8,28 +8,29 @@
     <script src="./sources/index.js" defer></script>
   </head>
   <body>
-
-      <div class="headerBar">
-        <a>Home</a>
-        <a>Portfolio</a>
-        <a>About Me</a>
-        <a>Links</a>
-      </div>
-      <video
+    <div class="headerBar" id="headerBar">
+      <a href="index.html" id="outer1">Home</a>
+      <a href="" id="inner">Portfolio</a>
+      <a href="" id="inner">About Me</a>
+      <a href="./links/index.html" id="outer2">Links</a>
+    </div>
+    <video
       autoplay
-        muted
-        loop
-        playsinline
-        disablePictureInPicture
-        class="videoBox"
-        width="100%">
-        <source src="./sources/videos/MVI_5142.MP4" type="video/mp4" />
-      </video>
+      muted
+      loop
+      playsinline
+      disablePictureInPicture
+      oncontextmenu="return false;"
+      class="videoBox"
+      width="100%">
+      <source src="./sources/videos/MVI_5142.MP4" type="video/mp4" />
+    </video>
 
     <div class="titleOverlay">
       <h1>RogueMew Photography</h1>
     </div>
 
+    <div class="backgroundSmoke"></div>
     <div class="fade"></div>
 
     <div class="selectPage">
@@ -40,11 +41,15 @@
           <img
             src="./sources/images/IMG_5899.jpg"
             id="pageSelectImage"
-            alt="link1" />
+            alt="link1"
+            oncontextmenu="return false;" />
         </a>
 
         <a href="" class="link">
-          <img src="./sources/images/IMG_5899.jpg" id="pageSelectImage" />
+          <img
+            src="./sources/images/IMG_5899.jpg"
+            id="pageSelectImage"
+            oncontextmenu="return false;" />
         </a>
       </div>
     </div>

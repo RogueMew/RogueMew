@@ -6,7 +6,9 @@
   color-scheme: light dark;
   overflow-x: hidden;
 
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  --background-Color: #111111;
 }
 
 body {
@@ -15,8 +17,22 @@ body {
 }
 
 .headerBar {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 10px;
+  left: 50%;
+
+  transform: translate(-50%, 0);
+
+  width: max-content;
+
+  z-index: 5;
+
+  background: rgba(255, 255, 255, 0.21);
+  border-radius: 50px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border: 3px groove rgb(241 241 241 / 7%);
 
   display: flex;
   flex-direction: row;
@@ -24,19 +40,41 @@ body {
   align-content: center;
   align-items: center;
   flex-wrap: nowrap;
+  gap: 1em;
 
-  background-color: #111111;
-  height: 3em;
-  z-index: 5;
+  a {
+    color: black;
 
-  box-shadow: 0px 10px 20px 10px #111111;
+    text-decoration: none;
+    text-align: center;
+    line-height: 1em;
+    font-size: 1.15em;
+    font-weight: 600;
 
+    padding: 1em 1.25em;
+
+    transition:
+      box-shadow 0.25s,
+      background-color 0.25s;
+  }
+
+  a:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 0px 5px 2px rgba(255, 255, 255, 0.5);
+  }
+
+  a#inner {
+    border-radius: 10px;
+  }
+
+  a#outer1 {
+    border-radius: 50px 10px 10px 50px;
+  }
+
+  a#outer2 {
+    border-radius: 10px 50px 50px 10px;
+  }
 }
-
-.headerBar a {
-  padding: 1em;
-}
-
 .videoBox {
   anchor-name: --video-anchor;
 }
@@ -44,13 +82,15 @@ body {
 .titleOverlay {
   position: absolute;
   position-anchor: --video-anchor;
+  position-area: center;
+  top: calc(anchor(center) - 7.5em);
+
+  anchor-name: --textOverlay;
+
   user-select: none;
-  width: fit-content;
-
+  width: 22em;
+  z-index: 2;
   text-align: center;
-
-  top: calc(anchor(center) - 13%);
-  left: calc(anchor(center) - 12%);
 }
 
 .titleOverlay h1 {
@@ -112,7 +152,7 @@ body {
 
 .link #pageSelectImage {
   anchor-name: --image-anchor;
-  width: 20em;
+  max-width: 20em;
   border-radius: 10px;
 }
 
