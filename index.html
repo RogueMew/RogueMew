@@ -8,51 +8,30 @@
     <script src="./sources/index.js" defer></script>
   </head>
   <body>
-    <div class="headerBar" id="headerBar">
+    <div id="headerBar" class="mobileHidden">
       <a href="index.html" id="outer1">Home</a>
       <a href="" id="inner">Portfolio</a>
       <a href="" id="inner">About Me</a>
-      <a href="./links/index.html" id="outer2">Links</a>
-    </div>
-    <video
-      autoplay
-      muted
-      loop
-      playsinline
-      disablePictureInPicture
-      oncontextmenu="return false;"
-      class="videoBox"
-      width="100%">
-      <source src="./sources/videos/MVI_5142.MP4" type="video/mp4" />
-    </video>
-
-    <div class="titleOverlay">
-      <h1>RogueMew Photography</h1>
+      <a href="#links" id="outer2">Links</a>
     </div>
 
-    <div class="backgroundSmoke"></div>
-    <div class="fade"></div>
+    <div id="introScreen">
+      <div class="mobileHidden" id="coolThing">
+        
+        <div class="deckBox" id="deckBox1">
+          <div aria-hidden="true" class="deck" id="deck1"></div>
+        </div>
 
-    <div class="selectPage">
-      <h1>Pages</h1>
+        <div class="deckBox" id="deckBox2">
+          <div aria-hidden="true" class="deck spinOp" id="deck2"></div>
+        </div>
 
-      <div class="pageSelect">
-        <a href="" class="link">
-          <img
-            src="./sources/images/IMG_5899.jpg"
-            id="pageSelectImage"
-            alt="link1"
-            oncontextmenu="return false;" />
-        </a>
-
-        <a href="" class="link">
-          <img
-            src="./sources/images/IMG_5899.jpg"
-            id="pageSelectImage"
-            oncontextmenu="return false;" />
-        </a>
+        <h1 id="introMiddleText">
+          RogueMew Photography
+        </h1>
+        <div id="fadeLeft"></div>
+        <div id="fadeRight"></div>
       </div>
     </div>
   </body>
-  <footer></footer>
 </html>

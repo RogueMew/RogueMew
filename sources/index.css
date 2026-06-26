@@ -9,6 +9,7 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
   --background-Color: #111111;
+  --animationTime: 120s;
 }
 
 body {
@@ -16,7 +17,7 @@ body {
   background-color: #111111;
 }
 
-.headerBar {
+#headerBar {
   position: fixed;
   top: 10px;
   left: 50%;
@@ -75,89 +76,98 @@ body {
     border-radius: 10px 50px 50px 10px;
   }
 }
-.videoBox {
-  anchor-name: --video-anchor;
+
+#deck2 {
+  translate: -100%;
+  padding-top: 10em ;
 }
 
-.titleOverlay {
-  position: absolute;
-  position-anchor: --video-anchor;
-  position-area: center;
-  top: calc(anchor(center) - 7.5em);
-
-  anchor-name: --textOverlay;
-
-  user-select: none;
-  width: 22em;
-  z-index: 2;
-  text-align: center;
+#coolThing{
+  anchor-name: --image-spinner;
 }
 
-.titleOverlay h1 {
-  margin: 0;
-  padding: 0;
-  margin-block: 0;
+#introScreen{
+  padding-top: 2em;
 }
+.deckBox {
+  display: flex;
 
-.fade {
-  position: absolute;
-  position-anchor: --video-anchor;
-
-  top: calc(anchor(bottom) - 1px);
-
-  z-index: 0;
+  overflow: hidden;
 
   width: 100%;
-  height: 1px;
+  height: fit-content;
 
-  box-shadow: 0px 0px 50px 200px #111111;
-
-  anchor-name: --fade;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
-.selectPage {
-  position: absolute;
-  position-anchor: --fade;
-
-  top: calc(anchor(bottom) - 150px);
-
-  z-index: 1;
-
-  left: 0;
-  right: 0;
-  margin-inline: auto;
-
+.deck {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-
-  align-items: center;
-
-  margin: auto;
-}
-
-.pageSelect {
-  width: 100%;
-
-  display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 5em;
-
-  margin-bottom: 3em;
-
-  background-color: #111111;
+  gap: 0.5em;
+  padding-right: 1em;
+  animation: spin infinite var(--animationTime) linear;
+  will-change: transform;
+  backface-visibility: hidden;
+  padding-top: 0;
 }
 
-.link #pageSelectImage {
-  anchor-name: --image-anchor;
-  max-width: 20em;
-  border-radius: 10px;
+.card {
+  width: auto;
+  flex: 0 0 5em;
+  max-height: 15em;
+
+  border-radius: 15px;
 }
 
-.link #textOverlay {
+.spinOp {
+  animation: spin-op infinite var(--animationTime) linear;
+  padding-left: 1em;
+  padding-right: 0;
+}
+
+@keyframes spin {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes spin-op {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(+100%);
+  }
+}
+
+#fadeLeft {
   position: absolute;
-  position-anchor: --image-anchor;
-  bottom: calc(anchor(bottom) + 50%);
+  position-anchor: --image-spinner;
+
+  top: anchor(top);
+  left: 0;
+
+  height: 100%;
+
+  width: 0px;
+
+  box-shadow: 0px 0px 25px 20px #111111;
+}
+
+#introMiddleText {
+  position: absolute;
+  position-anchor: --image-spinner;
+
+  top: anchor(center);
+  left: anchor(center);
+  transform: translate(-50%, -50%);
+
+  font-family: 'Times New Roman', Times, serif;
+  font-size: larger;
 }
