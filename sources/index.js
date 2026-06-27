@@ -1,4 +1,4 @@
-function detecDevice() {
+function detectDevice() {
   let device = "";
 
   if (
@@ -20,7 +20,6 @@ function detecDevice() {
 function duplicateDeck(deckName, deckBoxName) {
   const deck = document.getElementById(deckName);
   const cloneDeck = deck.cloneNode(true);
-  console.log(deckBoxName);
   document.getElementById(deckBoxName).appendChild(cloneDeck);
 }
 
@@ -34,11 +33,12 @@ function populateDecks(listOfImages, deckName) {
 }
 
 window.onload = function () {
-  if (detecDevice()) {
+  if (detectDevice()) {
     let elementsNeededHiding = document.getElementsByClassName("mobileHidden");
     for (let index = 0; index < elementsNeededHiding.length; index++) {
       const element = elementsNeededHiding[index];
-      element.computedStyleMap.visibility = "hidden";
+      element.style.visibility = "hidden";
+      console.log(element);
     }
   } else {
     let deck1Images = [
@@ -70,6 +70,10 @@ window.onload = function () {
 
     populateDecks(deck2Images, "deck2");
     duplicateDeck("deck2", "deckBox2");
-
   }
 };
+
+function openGallery(modalID) {
+  modalID.style.visibility = "visible"
+  console.log("Done!")
+}

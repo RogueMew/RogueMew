@@ -9,7 +9,11 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
   --background-Color: #111111;
-  --animationTime: 120s;
+  --animationTime: 60s;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -28,12 +32,15 @@ body {
 
   z-index: 5;
 
-  background: rgba(255, 255, 255, 0.21);
+  background: 0;
   border-radius: 50px;
-  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  border: 3px groove rgb(241 241 241 / 7%);
+
+  box-shadow:
+    0 5px 30px rgba(0, 0, 0, 0.1),
+    inset 0 0 12px 0px rgb(255 255 255 / 27%);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgb(255 255 255 / 16%);
 
   display: flex;
   flex-direction: row;
@@ -44,7 +51,7 @@ body {
   gap: 1em;
 
   a {
-    color: black;
+    color: white;
 
     text-decoration: none;
     text-align: center;
@@ -52,7 +59,7 @@ body {
     font-size: 1.15em;
     font-weight: 600;
 
-    padding: 1em 1.25em;
+    padding: 0.6em 1.25em;
 
     transition:
       box-shadow 0.25s,
@@ -60,16 +67,16 @@ body {
   }
 
   a:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0px 0px 5px 2px rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0px 0px 5px 2px rgba(255, 255, 255, 0.25);
   }
 
   a#inner {
-    border-radius: 10px;
+    border-radius: 5px;
   }
 
   a#outer1 {
-    border-radius: 50px 10px 10px 50px;
+    border-radius: 50px 5px 5px 50px;
   }
 
   a#outer2 {
@@ -79,16 +86,28 @@ body {
 
 #deck2 {
   translate: -100%;
-  padding-top: 10em ;
+  padding-top: 10em;
 }
 
-#coolThing{
+#coolThing {
   anchor-name: --image-spinner;
 }
 
-#introScreen{
+#introScreen {
   padding-top: 2em;
 }
+
+#introMiddleText {
+  position: absolute;
+  position-anchor: --image-spinner;
+
+  top: anchor(center);
+  left: anchor(center);
+  transform: translate(-50%, -100%);
+
+  font-family: "Times New Roman", Times, serif;
+}
+
 .deckBox {
   display: flex;
 
@@ -129,20 +148,14 @@ body {
 }
 
 @keyframes spin {
-  from {
-    transform: translateX(0);
-  }
   to {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 
 @keyframes spin-op {
-  from {
-    transform: translateX(0);
-  }
   to {
-    transform: translateX(+100%);
+    transform: translateX(50%);
   }
 }
 
@@ -160,14 +173,70 @@ body {
   box-shadow: 0px 0px 25px 20px #111111;
 }
 
-#introMiddleText {
+#fadeRight {
   position: absolute;
   position-anchor: --image-spinner;
 
-  top: anchor(center);
-  left: anchor(center);
-  transform: translate(-50%, -50%);
+  top: anchor(top);
+  right: 0;
 
-  font-family: 'Times New Roman', Times, serif;
-  font-size: larger;
+  height: 100%;
+  width: 0px;
+
+  box-shadow: 0px 0px 25px 20px #111111;
+}
+
+#aboutMe {
+  width: 90%;
+  padding: 1em 2em;
+  margin: 5em auto;
+  background-color: #292929;
+
+  display: flex;
+  flex-direction: row;
+
+  border-radius: 15px;
+
+  gap: 10em;
+
+  #aboutMeText {
+    display: flex;
+    flex-direction: column;
+
+    div {
+      max-width: 50em;
+      font-size: 1em;
+      text-align: left;
+    }
+    h1 {
+      font-size: 2.5em;
+      font-family: "Times New Roman", Times, serif;
+    }
+  }
+
+  #aboutMeImg {
+    max-width: 20em;
+    max-height: max-content;
+    border-radius: 25px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+  }
+}
+
+#gallery {
+  margin: 5em auto;
+
+  div {
+    width: fit-content;
+    margin: auto;
+
+    .galleryButton {
+      max-width: 20em;
+    }
+
+
+  }
+
+  .modal{
+    visibility: hidden;
+  }
 }
