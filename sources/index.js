@@ -17,18 +17,14 @@ function detectDevice() {
   return device;
 }
 
-function duplicateDeck(deckName, deckBoxName) {
-  const deck = document.getElementById(deckName);
-  const cloneDeck = deck.cloneNode(true);
-  document.getElementById(deckBoxName).appendChild(cloneDeck);
-}
+function populateMiniGallery(miniGalleryImgs) {
+  const galleryLocation = document.getElementById("miniGallery");
 
-function populateDecks(listOfImages, deckName) {
-  listOfImages.forEach((imageName) => {
-    let imageBox = document.createElement("img");
-    imageBox.className = "card";
-    imageBox.src = imageName;
-    document.getElementById(deckName).appendChild(imageBox);
+  miniGalleryImgs.forEach((miniGaliImg) => {
+    temp = document.createElement("img");
+    temp.src = miniGaliImg;
+    temp.className = "miniGalleryImage";
+    galleryLocation.appendChild(temp);
   });
 }
 
@@ -41,7 +37,10 @@ window.onload = function () {
       console.log(element);
     }
   } else {
-    let deck1Images = [
+
+    
+
+    let galImgs = [
       "./sources/images/IMG_7450.jpg",
       "./sources/images/IMG_7515.jpg",
       "./sources/images/IMG_7851.jpg",
@@ -51,29 +50,60 @@ window.onload = function () {
       "./sources/images/IMG_8051.jpg",
       "./sources/images/IMG_8055.jpg",
       "./sources/images/IMG_8080.jpg",
-    ];
-
-    let deck2Images = [
-      "./sources/images/IMG_7175.jpg",
-      "./sources/images/IMG_7197.jpg",
-      "./sources/images/IMG_7246.jpg",
+      "./sources/images/IMG_5899.jpg",
       "./sources/images/IMG_7072.jpg",
       "./sources/images/IMG_7073.jpg",
       "./sources/images/IMG_7074.jpg",
       "./sources/images/IMG_7081.jpg",
       "./sources/images/IMG_7082.jpg",
       "./sources/images/IMG_7146.jpg",
+      "./sources/images/IMG_7175.jpg",
+      "./sources/images/IMG_7197.jpg",
     ];
+    populateMiniGallery(galImgs);
 
-    populateDecks(deck1Images, "deck1");
-    duplicateDeck("deck1", "deckBox1");
 
-    populateDecks(deck2Images, "deck2");
-    duplicateDeck("deck2", "deckBox2");
   }
 };
 
 function openGallery(modalID) {
-  modalID.style.visibility = "visible"
-  console.log("Done!")
+  modalID.style.visibility = "visible";
+  console.log("Done!");
 }
+
+const header = document.getElementById('headerBar');
+
+function getColorBehindHeader() {
+  const rect = header.getBoundingClientRect();
+  const x = rect.left + rect.width / 2;
+  const y = rect.bottom - 1;
+
+  header.style.visibility = 'hidden';
+  const elements = document.elementsFromPoint(x, y);
+  header.style.visibility = '';
+
+  for (const el of elements) {
+    const bg = getComputedStyle(el).backgroundColor;
+    if (bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent') {
+      return bg;
+    }
+  }
+
+  return 'rgb(255, 255, 255)';
+}
+
+function isWhite(color) {
+  const [r, g, b] = color.match(/\d+/g).map(Number);
+  return r > 240 && g > 240 && b > 240;
+}
+
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (ticking) return;
+  requestAnimationFrame(() => {
+    const bg = getColorBehindHeader();
+    header.classList.toggle('over-white', isWhite(bg));
+    ticking = false;
+  });
+  ticking = true;
+}, { passive: true });
